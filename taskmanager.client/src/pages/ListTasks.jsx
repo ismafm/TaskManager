@@ -8,7 +8,7 @@ export default function ListTasks() {
 
     const deleteClick = async (id) => {
         await deleteTask(id);
-        setTasks(actual => actual.filter(t => t.id !== id))
+        setTasks(prev => prev.filter(t => t.id !== id))
         alert("Tarea borrada")
     }
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function ListTasks() {
                         <td>{t.id}</td>
                         <td>{t.name}</td>
                         <td>
-                            <link to="/EditTask/{}"></link>    
+                            <Link to={`/EditTask/${t.id}`}><button>EDITAR</button></Link>    
                             <button onClick={() => deleteClick(t.id)}>BORRAR</button>
 
                         </td>
